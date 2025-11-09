@@ -2,16 +2,15 @@ from ucimlrepo import fetch_ucirepo
 
 DATA_REPOSITORY_ID = 17
 
-breast_cancer_wisconsin_diagnostic = fetch_ucirepo(id=DATA_REPOSITORY_ID)
+def get_loaded_data():
+    return fetch_ucirepo(id=DATA_REPOSITORY_ID)
 
 def get_dataframes():
-    x = breast_cancer_wisconsin_diagnostic.data.features
-    y = breast_cancer_wisconsin_diagnostic.data.targets
+    x = get_loaded_data().data.features
+    y = get_loaded_data().data.targets
 
     return x, y
 
 def print_variables():
-    print(breast_cancer_wisconsin_diagnostic.variables)
-
-print_variables()
+    print(get_loaded_data().variables)
 
