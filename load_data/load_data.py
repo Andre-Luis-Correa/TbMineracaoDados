@@ -1,3 +1,4 @@
+import pandas as pd
 from ucimlrepo import fetch_ucirepo
 
 DATA_REPOSITORY_ID = 17
@@ -10,6 +11,10 @@ def get_dataframes():
     y = get_loaded_data().data.targets
 
     return x, y
+
+def get_full_dataframe():
+    x, y = get_dataframes()
+    return pd.concat([x, y], axis=1)
 
 def print_variables():
     print(get_loaded_data().variables)
